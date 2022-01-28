@@ -12,23 +12,44 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+            <!-- Student Number -->
+            <div class="mt-4">
+                <x-label for="student_number" :value="__('Studentnummer')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="student_number" class="block mt-1 w-full" type="text" name="student_number" :value="old('student_number')" required />
             </div>
 
-            <!-- Email Address -->
+            <!-- Email -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required disabled/>
+            </div>
+
+            <!-- First Name -->
+            <div>
+                <x-label for="first_name" :value="__('Voornaam')" />
+
+                <x-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus />
+            </div>
+
+            <!-- Last Name -->
+            <div>
+                <x-label for="last_name" :value="__('Achternaam')" />
+
+                <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus />
+            </div>
+
+            <!-- Grade -->
+            <div class="mt-4">
+                <x-label for="grade" :value="__('Leerjaar')" />
+
+                <x-input id="grade" class="block mt-1 w-full" type="text" name="grade" :value="old('grade')" required />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Wachtwoord')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -38,7 +59,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Bevestig wachtwoord')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
@@ -57,3 +78,5 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+<script src="{{ asset('js/email.js') }}"></script>
